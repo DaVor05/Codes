@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario</title>
+    <link rel="stylesheet" href="Inventario.css">
+    <script defer src="Inventario.js"></script>
+    <link rel="stylesheet" href="Negro.css">
+    <script defer src="Negro.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="Images/8214212.png" alt="Usuario" class="user-icon">
+            <p><em>David</em></p>
+        </div>
+        <nav>
+            <ul>
+                <button class="Inventory">Inventario</button>
+                <button class="Sales">Ventas</button>
+                <button class="Buy">Compras</button>
+                <button class="Configuration">Configuración</button>
+            </ul>
+        </nav>
+        <button class="logout">Salir</button>
+    </div>
+    <div class="content">
+        <div class="top-bar">
+            <button class="add-btn">➕Añadir</button>
+            <button class="import-btn">Exportar a Excel</button>
+            <button class="delete-btn">❌Eliminar</button>
+            <label>Buscar: <input type="text" id="searchInput"></label>
+        </div>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>No. Producto</th>
+                    <th>Costo Unitario</th>
+                    <th>Stock</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas se insertarán aquí -->
+            </tbody>
+        </table>        
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.sidebar {
+    width: 200px;
+    background: #555;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.Inventory, .Sales, .Buy, .Configuration {
+    width: 100%;
+    color: white;
+    padding: 12px;
+    background: #777;
+    cursor: pointer;
+    margin: 5px 0;
+}
+.logout {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.status {
+    font-weight: bold;
+    color: #3700ffc4; /* Verde para "VENDIDO" */
+}
+
+#productTable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#productTable th, #productTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

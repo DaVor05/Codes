@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <body>
+        <header>
+            <h1>David Hernandez Vidriales</h1>
+        </header>
+    
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="Sobre Mi.html">Sobre Mí</a>
+            <a href="Clientes.html">Clientes</a>
+            <a href="Contacto.html">Contacto</a>
+        </nav>
+    
+        <main>
+            <p>Mis Servicios</p>
+            <button onclick="toggleTheme()">Cambiar Tema</button>
+            <img class="dynamic-img" src="img/emmanuel-edward-6YFgGY6kn6Q-unsplash.jpg" alt="Diseño y Desarrollo Web Freelancer">
+        </main>
+    
+        <section style="background-image: url('img/background.jpg'); background-size: cover; background-position: center; text-align: center; padding: 50px 20px; color:#003366;">
+            <h1>Diseño y Desarrollo Web Freelancer</h1>
+            <p style="font-size: 20px; margin: 10px 0;"><img src="img/7508993.png" alt="Descripción" style="width: 50px; height: auto;"> Tijuana, Baja California</p>
+            <a href="#" style="display: inline-block; background-color: #17a2b8; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">CONTACTAR</a>
+        </section>
+
+    
+        <section>
+            <h2>Redes Sociales</h2>
+            <div style="text-align: center;">
+                <a href="https://facebook.com" target="_blank" style="margin: 0 10px;">
+                    <img src="img/facebook.png" alt="Facebook" style="width: 50px; height: 50px;">
+                </a>
+                <a href="https://instagram.com" target="_blank" style="margin: 0 10px;">
+                    <img src="img/instagram.png" alt="Instagram" style="width: 50px; height: 50px;">
+                </a>
+                <a href="https://twitter.com" target="_blank" style="margin: 0 10px;">
+                    <img src="img/twitter_3256013.png" alt="Twitter" style="width: 50px; height: 50px;">
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Mis Servicios</h2>
+            <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
+                <div style="text-align: center;">
+                    <div style="background-color: #FFC107; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <img src="img/arte-digital.png" alt="Diseño Web" style="width: 50px; height: 50px;">
+                    </div>
+                    <p>Diseño Web</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="background-color: #FFC107; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <img src="img/androide.png" alt="Aplicaciones Web" style="width: 50px; height: 50px;">
+                    </div>
+                    <p>Aplicaciones Web</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="background-color: #FFC107; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <img src="img/sitio-web.png" alt="E-Commerce" style="width: 50px; height: 50px;">
+                    </div>
+                    <p>E-Commerce</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contacto</h2>
+            <form action="tu-servidor.php" method="post">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+    
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Tu Teléfono">
+    
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Escribe tu correo" required>
+    
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje aquí..." rows="5" required></textarea>
+    
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 David Hernandez Vidriales. Todos los derechos reservados.</p>
+            <nav>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">Mapa del Sitio</a>
+            </nav>
+        </footer>
+    
+        <button id="scrollTop">⬆</button>    
+
+<script src="script.js"></script>
+</body>
+</html>

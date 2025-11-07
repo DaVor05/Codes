@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras</title>
+    <link rel="stylesheet" href="Compras.css">
+    <script src="Compras.js"></script>
+    <link rel="stylesheet" href="Negro.css">
+    <script defer src="Negro.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="Images/8214212.png" alt="Usuario" class="user-icon">
+            <p><em>David</em></p>
+        </div>
+        <nav>
+            <ul>
+                <button class="Inventory" id="inventory-btn">Inventario</button>
+                <button class="Sales" id="sales-btn">Ventas</button>
+                <button class="Buy" id="buy-btn">Compras</button>
+                <button class="Configuration" id="config-btn">Configuración</button>
+            </ul>
+        </nav>
+        <button class="logout" id="logout-btn">Salir</button>
+    </div>
+
+    <table id="purchaseTable">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>No. Producto</th>
+                <th>Costo Unitario</th>
+                <th>Stock</th>
+                <th>Estado</th>
+                <button onclick="cargarCompras()">Cargar Compras</button>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las filas de compra se insertarán aquí -->
+        </tbody>
+    </table>
+        
+</body>
+</html>

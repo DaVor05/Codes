@@ -1,0 +1,40 @@
+body.modo-oscuro {
+    background-color: #333;
+    color: white;
+}
+
+.sidebar.modo-oscuro {
+    background-color: #222;
+}
+
+.Inventory.modo-oscuro, .Sales.modo-oscuro, .Buy.modo-oscuro, .Configuration.modo-oscuro {
+    background-color: #444;
+}
+
+input.modo-oscuro {
+    background-color: #555;
+    color: white;
+}
+
+button.modo-oscuro {
+    background-color: #444;
+}
+
+/* Configuración en la barra lateral */
+.config-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.config-bar label {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* Barra lateral y los elementos dentro */
+.sidebar button, .config-bar button {
+    display: block;
+    width: 100%;
+}

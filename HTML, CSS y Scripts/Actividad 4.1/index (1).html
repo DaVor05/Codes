@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario con Pestañas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="panel">
+    <div class="tabs">
+      <div class="tab active" data-index="0">Formulario</div>
+      <div class="tab" data-index="1">Datos</div>
+    </div>
+
+    <div class="tab-content active">
+      <label>Nombre:</label>
+      <input id="nombre" type="text" placeholder="Escribe tu nombre">
+      <label>Correo:</label>
+      <input id="correo" type="text" placeholder="Escribe tu correo">
+      <button onclick="enviarFormulario()">Enviar</button>
+    </div>
+
+    <div class="tab-content">
+      <p>Este es el contenido de la pestaña de datos.</p>
+      <button onclick="actualizarDatos()">Actualizar</button>
+    </div>
+  </div>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.sidebar {
+    width: 200px;
+    background: #555;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.Inventory, .Sales, .Buy, .Configuration {
+    width: 100%;
+    color: white;
+    padding: 12px;
+    background: #777;
+    cursor: pointer;
+    margin: 5px 0;
+}
+.logout {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: auto;
+}
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+.top-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.add-btn, .import-btn, .delete-btn {
+    background: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+.status {
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.complete {
+    background: green;
+}
+.incomplete {
+    background: red;
+}
+
+/* Modo oscuro */
+body.modo-oscuro {
+    background-color: #333;
+    color: white;
+}
+
+.sidebar.modo-oscuro {
+    background-color: #222;
+}
