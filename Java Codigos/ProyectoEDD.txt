@@ -1,0 +1,630 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
+public class ProyectoAlgoritmosOrdenamiento {
+
+    public static void main(String[] args) {
+
+        //Este fue el unico error o advertencias que me sale, lo intente solucionar de muchas maneras como "scanner.close();"//
+        //pero no me funciono con este metodo//
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Menu de Algoritmos");
+
+        while (true) {
+            System.out.println("-------- MENU --------");
+            System.out.println("[1] Algoritmos de Ordenacion ");
+            System.out.println("[2] Algoritmos de Busqueda ");
+            System.out.println("[3] Salir");
+            System.out.println("Ingrese una opción:");
+            int opcion = scanner.nextInt();
+
+            //El Menu completo, me costo arregla esto pero lo logre por el boolean que permite naveger//
+            //Facilmente entre los menus porque antes lo hacia con while pero me confundia y se me complicaba mas corregirlo//
+            switch (opcion) {
+                case 1:
+                    boolean volverMenuPrincipal = false;
+                    while (!volverMenuPrincipal) {
+                        System.out.println("-------- MENU --------");
+                        System.out.println("[1] Interno ");
+                        System.out.println("[2] Externo ");
+                        System.out.println("[3] Volver al Menú Principal");
+                        System.out.println("Ingrese una opción:");
+                        int opcionOrdenacion = scanner.nextInt();
+                        
+                        switch (opcionOrdenacion) {
+                            case 1:
+                                boolean volverSubMenu = false;
+                                while (!volverSubMenu) {
+                                    System.out.println("-------- MENU --------");
+                                    System.out.println("[1] Burbuja ");
+                                    System.out.println("[2] Burbuja Mejorada");
+                                    System.out.println("[3] Seleccion Directa");
+                                    System.out.println("[4] Insercion Directa");
+                                    System.out.println("[5] Quicksort");
+                                    System.out.println("[6] Shellsort");
+                                    System.out.println("[7] Radixsort");
+                                    System.out.println("[8] Volver al Menú Anterior");
+                                    System.out.println("Ingrese una opción:");
+                                    int opcionOrden = scanner.nextInt();
+                                    
+                                    //El arreglo es para todos los algoritmos, se puede cambair por uno grande en cualquier momemto//
+                                    //El codigo se vuelve a su estado original; osea, desordenado por este algortimo, perdon por saberle a esto//
+                                    //Nunca pense esto era tan importante, bueno, si es importante pero no tan importante//
+                                    int[] arreglo = {10,15,2,8,4,6};
+
+                                    /*Al usar arreglo.clone() en el menú, logras que las opciones de ordenamiento y
+                                    manipulación puedan ejecutarse de forma independiente y segura.
+                                    Esto da al usuario flexibilidad y seguridad, al saber que el estado original del
+                                    arreglo está protegido y que puede realizar pruebas sin comprometer
+                                    los datos iniciales*/
+                                    switch (opcionOrden) {
+                                        case 1:
+                                            System.out.println("Burbuja Normal:");
+                                            burbuja(arreglo.clone());
+                                            break;
+                                        case 2:
+                                            System.out.println("Burbuja Mejorada:");
+                                            burbujaMejorada(arreglo.clone());
+                                            break;
+                                        case 3:
+                                            System.out.println("Seleccion Directa:");
+                                            selecciondirecta(arreglo.clone());
+                                            break;
+                                        case 4:
+                                            System.out.println("Insercion Directa:");
+                                            inserciondirecta(arreglo.clone());
+                                            break;
+                                        case 5:
+                                            System.out.println("Quicksort:");
+                                            quicksort(arreglo.clone(), 0, arreglo.length - 1);
+                                            printArray(arreglo);
+                                            break;
+                                        case 6:
+                                            System.out.println("Shellsort:");
+                                            shellSort(arreglo.clone());
+                                            break;
+                                        case 7:
+                                            System.out.println("Radixsort:");
+                                            radixSort(arreglo.clone(), arreglo.length);
+                                            break;
+                                        case 8:
+                                            volverSubMenu = true;
+                                            break;
+                                        default:
+                                            System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+                                            break;
+                                    }
+                                }
+                                break;
+
+                                case 2:
+                                boolean volverSubMenuExterno = false;
+                                while (!volverSubMenuExterno) {
+                                    System.out.println("-------- MENU EXTERNO --------");
+                                    System.out.println("[1] Merge Sort");
+                                    System.out.println("[2] Mezcla Natural");
+                                    System.out.println("[3] Regresar");
+                                    System.out.println("Ingrese una opción:");
+                                    int opcionExterno = scanner.nextInt();
+
+                                    //Ya comenzamos con los codigos de ordenacion externos.
+                                    switch (opcionExterno) {
+                                        case 1:
+                                            System.out.println("Merge Sort:");
+                                            mergeSort(args);
+                                            break;
+                                        case 2:
+                                            System.out.println("Mezcla Natural:");
+                                            MezclaNatural(args);
+                                            break;
+                                        case 3:
+                                            volverSubMenuExterno = true;
+                                            break;
+                                        default:
+                                            System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+                                            break;
+                                    }
+                                }
+
+                                break;
+                            case 3:
+                                volverMenuPrincipal = true;
+                                break;
+                            default:
+                                System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+                                break;
+                        }
+                    }
+                    break;
+
+                case 2:
+                boolean volverMenuPrincipalBusqueda = false;
+                while (!volverMenuPrincipalBusqueda) {
+                    System.out.println("-------- MENU --------");
+                    System.out.println("[1] Busqueda Binaria");
+                    System.out.println("[2] Busqueda Lineal");
+                    System.out.println("[3] En blanco");
+                    System.out.println("[4] Regresar");
+                    System.out.println("Ingrese una opción:");
+                    int opcionBusqueda = scanner.nextInt();
+
+                    int[] arreglo = {10,15,2,8,4,6};
+
+                    switch (opcionBusqueda) {
+                        case 1:
+                            System.out.println("¡Gracias por utilizar!");
+                            break;
+                        case 2:
+                            System.out.println("��Gracias por utilizar!");
+                            break;
+                        case 3:
+                            System.out.println("Xd");    
+                        case 4:
+                            volverMenuPrincipalBusqueda = true;
+                            break;
+                    }
+                }
+                break;
+
+                case 3:
+                    System.out.println("¡Gracias por utilizar!");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+                    break;
+            }
+        }
+    }
+
+    //Aqui esta los metodos que hicimos durante el mes de septiembre y octubre //
+    //El primer codigo es de burbuja, aqui esta el pseudocodigo: //
+    /*función burbuja (arreglo, n)
+        para i desde 0 hasta n-1
+            para j desde 0 hasta n-1
+            si arreglo[j] > arreglo[j+1] entonces
+    intercambiar arreglo[j] y arreglo[j+1]*/
+
+    public static void burbuja(int[] arreglo) {
+        System.out.println("Arreglo original:");
+        printArray(arreglo);
+        for (int i = 0; i < arreglo.length - 1; i++) {
+            for (int j = 0; j < arreglo.length - 1 - i; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    int temp = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = temp;
+                }
+                printArray(arreglo);
+            }
+        }
+        System.out.println("Arreglo ordenado:");
+        printArray(arreglo);
+    }
+
+    //El segundo codigo es de burbuja mejorada, aqui esta el pseudocodigo: //
+    /*Función burbuja(arreglo, n)
+        Para i desde 0 hasta n - 1 hacer:
+        ordenado = verdadero
+        Para j desde 0 hasta n - 1 hacer:
+        Si arreglo[j] > arreglo[j + 1] entonces:
+        temp = arreglo[j]
+        arreglo[j] = arreglo[j + 1]
+        arreglo[j + 1] = temp
+    ordenado = falso
+    Imprimir el arreglo después de cada iteración
+        Si ordenado es verdadero entonces:
+        Romper el ciclo
+    Fin Función*/
+    public static void burbujaMejorada(int[] arreglo) {
+        System.out.println("Arreglo original:");
+        printArray(arreglo);
+        boolean swapped;
+        for (int i = 0; i < arreglo.length - 1; i++) {
+            swapped = true;
+            for (int j = 0; j < arreglo.length - 1 - i; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    int temp = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = temp;
+                    swapped = false;
+                }
+                printArray(arreglo);
+            }
+            if (!swapped) break;
+        }
+        System.out.println("Arreglo ordenado:");
+        printArray(arreglo);
+    }
+
+    //El tercer codigo es de Seleccion Directa, aqui esta el pseudocodigo: //
+     /*for i = 1:n,
+        k = i
+        for j = i+1:n, if a[j] < a[k], k = j
+        → invariant: a[k] smallest of a[i..n]
+        swap a[i,k]
+        → invariant: a[1..i] in final position
+    end*/
+    public static void selecciondirecta(int[] arreglo) {
+        System.out.println("Arreglo original:");
+        printArray(arreglo);
+        for (int i = 0; i < arreglo.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arreglo.length; j++) {
+                if (arreglo[j] < arreglo[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = arreglo[minIndex];
+            arreglo[minIndex] = arreglo[i];
+            arreglo[i] = temp;
+            printArray(arreglo);
+        }
+        System.out.println("Arreglo ordenado:");
+        printArray(arreglo);
+    }
+
+    //El cuarto codigo es de Insercion Directa, aqui esta el pseudocodigo: //
+    /*for i = 2:n,
+        for (k = i; k > 1 and a[k] < a[k-1]; k--)
+            swap a[k,k-1]
+        → invariant: a[1..i] is sorted
+    end*/
+    public static void inserciondirecta(int[] arreglo) {
+        System.out.println("Arreglo original:");
+        printArray(arreglo);
+        for (int i = 1; i < arreglo.length; i++) {
+            int key = arreglo[i];
+            int j = i - 1;
+            while (j >= 0 && arreglo[j] > key) {
+                arreglo[j + 1] = arreglo[j];
+                j--;
+            }
+            arreglo[j + 1] = key;
+            printArray(arreglo);
+        }
+        System.out.println("Arreglo ordenado:");
+        printArray(arreglo);
+    }
+
+    //El quinto codigo es de QuickSort, aqui esta el pseudocodigo: //
+    /*_# choose pivot_
+    swap a[1,rand(1,n)]
+
+    _# 2-way partition_
+    k = 1
+    for i = 2:n, if a[i] < a[1], swap a[++k,i]
+    swap a[1,k]
+    _→ invariant: a[1..k-1] < a[k] <= a[k+1..n]_
+
+    _# recursive sorts_
+    sort a[1..k-1]
+    sort a[k+1,n] */
+    public static void quicksort(int[] arreglo, int inicio, int fin) {
+        if (inicio < fin) {
+            int pivotIndex = particion(arreglo, inicio, fin);
+            
+            //Recursividad
+            quicksort(arreglo, inicio, pivotIndex - 1); 
+            quicksort(arreglo, pivotIndex + 1, fin);  
+        }
+    }
+
+    // Método la partición del arreglo
+    public static int particion(int[] arreglo, int inicio, int fin) {
+        Random rand = new Random();
+        int randomPivotIndex = inicio + rand.nextInt(fin - inicio + 1);
+        swap(arreglo, inicio, randomPivotIndex);
+        
+        int pivote = arreglo[inicio];
+        int k = inicio;
+
+        for (int i = inicio + 1; i <= fin; i++) {
+            if (arreglo[i] < pivote) {
+                k++;
+                swap(arreglo, k, i);
+            }
+        }
+
+        swap(arreglo, inicio, k);
+
+        return k;
+    }
+
+    // Método intercambiar dos elementos
+    public static void swap(int[] arreglo, int i, int j) {
+        if (i != j) {
+            int temp = arreglo[i];
+            arreglo[i] = arreglo[j];
+            arreglo[j] = temp;
+
+            printArray(arreglo);
+        }
+    }
+
+    // Método imprimir el recorrido de arreglo
+    public static void printarray(int[] arreglo) {
+        for (int num : arreglo) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    //El sexto codigo es de ShellSort, aqui esta el pseudocodigo: //
+    /*h = 1
+    while h < n, h = 3*h + 1
+    while h > 0,
+        h = h / 3
+    for k = 1:h, insertion sort a[k:h:n]
+    → invariant: each h-sub-array is sorted
+    end */
+    public static void shellSort(int[] arreglo) {
+        int n = arreglo.length;
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i++) {
+                int temp = arreglo[i];
+                int j;
+                for (j = i; j >= gap && arreglo[j - gap] > temp; j -= gap) {
+                    arreglo[j] = arreglo[j - gap];
+                }
+                arreglo[j] = temp;
+                printArray(arreglo);
+            }
+        }
+    }
+
+    //El septimo y ultimo codigo es de RadixSort, aqui esta el pseudocodigo: //
+    /*RadixSort(arreglo, n, d):
+    d <- número máximo de dígitos en los números del arreglo
+    para j <- 1 hasta d:
+        CountingSortPorDigito(arreglo, n, j)
+    fin para
+    devolver arreglo
+    Fin RadixSort
+
+    CountingSortPorDigito(arreglo, n, digito):
+    arregloAux[0..9] <- {0}
+    salida[0..n-1] <- {0}
+    para j <- 0 hasta n-1:
+        valor_digito <- obtener el dígito en la posición digito del arreglo[j]
+        arregloAux[valor_digito] <- arregloAux[valor_digito] + 1
+    fin para
+
+    para k <- 1 hasta 9:
+        arregloAux[k] <- arregloAux[k] + arregloAux[k-1]
+    fin para
+
+    para j <- n-1 hasta 0:
+        valor_digito <- obtener el dígito en la posición digito del arreglo[j]
+        salida[arregloAux[valor_digito] - 1] <- arreglo[j]
+        arregloAux[valor_digito] <- arregloAux[valor_digito] - 1
+    fin para
+    para j <- 0 hasta n-1:
+        arreglo[j] <- salida[j]
+    fin para
+    devolver arreglo
+    Fin CountingSortPorDigito
+     */
+
+    public static void radixSort(int[] arreglo, int n) {
+        int max = getMax(arreglo, n);
+        for (int digito = 1; max / digito > 0; digito *= 10) {
+            System.out.println("\nOrdenando por el dígito en la posición " + digito + ":");
+            countingSortPorDigito(arreglo, n, digito);
+            System.out.println("Estado del arreglo después de ordenar por el dígito " + digito + ":");
+            printArray(arreglo);
+        }
+        System.out.println("\nArreglo final ordenado:");
+        printArray(arreglo);
+    }
+
+    public static int getMax(int[] arreglo, int n) {
+        int max = arreglo[0];
+        for (int i = 1; i < n; i++) {
+            if (arreglo[i] > max) {
+                max = arreglo[i];
+            }
+        }
+        return max;
+    }
+
+    public static void countingSortPorDigito(int[] arreglo, int n, int digito) {
+        int[] salida = new int[n];
+        int[] arregloAux = new int[10];
+        for (int i = 0; i < n; i++) {
+            int valor_digito = (arreglo[i] / digito) % 10;
+            arregloAux[valor_digito]++;
+        }
+        for (int i = 1; i < 10; i++) {
+            arregloAux[i] += arregloAux[i - 1];
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            int valor_digito = (arreglo[i] / digito) % 10;
+            salida[arregloAux[valor_digito] - 1] = arreglo[i];
+            arregloAux[valor_digito]--;
+        }
+        for (int i = 0; i < n; i++) {
+            arreglo[i] = salida[i];
+            printArray(arreglo);
+        }
+    }
+
+    public static void printArray(int[] arreglo) {
+        for (int num : arreglo) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    //........()
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int middle = (left + right) / 2;
+
+            mergeSort(arr, left, middle);
+            mergeSort(arr, middle + 1, right);
+
+            merge(arr, left, middle, right);
+        }
+    }
+
+    public static void merge(int[] arr, int left, int middle, int right) {
+        int n1 = middle - left + 1;
+        int n2 = right - middle;
+
+        int[] leftArray = new int[n1];
+        int[] rightArray = new int[n2];
+
+        for (int i = 0; i < n1; i++) {
+            leftArray[i] = arr[left + i];
+        }
+        for (int j = 0; j < n2; j++) {
+            rightArray[j] = arr[middle + 1 + j];
+        }
+
+        int i = 0, j = 0;
+        int k = left;
+        while (i < n1 && j < n2) {
+            if (leftArray[i] <= rightArray[j]) {
+                arr[k] = leftArray[i];
+                i++;
+            } else {
+                arr[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1) {
+            arr[k] = leftArray[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            arr[k] = rightArray[j];
+            j++;
+            k++;
+        }
+    }
+
+    public static void mergeSort(String[] args) {
+        int[] ventasDiarias = {300, 1500, 200, 500, 1200, 700, 50};
+
+        System.out.println("Arreglo original:");
+        for (int num : ventasDiarias) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        mergeSort(ventasDiarias, 0, ventasDiarias.length - 1);
+
+        System.out.println("Arreglo ordenado:");
+        for (int num : ventasDiarias) {
+            System.out.print(num + " ");
+        }
+    }
+
+     public static void MezclaNatural(String[] args) {
+        int[] Calificaciones = {85, 90, 78, 88, 76, 95, 89, 92, 60, 65, 70};
+        
+        System.out.print("Calificaciones originales: ");
+        imprimirCalificaciones(Calificaciones);
+
+        Calificaciones = ordenarCalificaciones(Calificaciones);
+
+        System.out.print("Calificaciones ordenadas: ");
+        imprimirCalificaciones(Calificaciones);
+    }
+
+    public static int[] ordenarCalificaciones(int[] Califi) {
+        boolean ordenado = false;
+
+        while (!ordenado) {
+            List<int[]> sublistas = new ArrayList<>();
+            int inicio = 0;
+
+            while (inicio < Califi.length) {
+                int fin = inicio + 1;
+                while (fin < Califi.length && Califi[fin - 1] <= Califi[fin]) {
+                    fin++;
+                }
+                sublistas.add(extraerSublista(Califi, inicio, fin));
+                inicio = fin;
+            }
+
+            List<int[]> CalificaionFusionada = new ArrayList<>();
+            int i = 0;
+            while (i < sublistas.size() - 1) {
+                int[] combinada = Combinacion(sublistas.get(i), sublistas.get(i + 1));
+                CalificaionFusionada.add(combinada);
+                i += 2;
+            }
+
+            if (i == sublistas.size() - 1) {
+                CalificaionFusionada.add(sublistas.get(i));
+            }
+
+            Califi = Fusionar(CalificaionFusionada);
+
+            ordenado = CalificaionFusionada.size() == 1;
+        }
+
+        return Califi;
+    }
+
+    public static int[] extraerSublista(int[] lista, int inicio, int fin) {
+        int[] sublista = new int[fin - inicio];
+        System.arraycopy(lista, inicio, sublista, 0, fin - inicio);
+        return sublista;
+    }
+
+    public static int[] Combinacion(int[] sublista1, int[] sublista2) {
+        int[] resultado = new int[sublista1.length + sublista2.length];
+        int i = 0, j = 0, k = 0;
+
+        while (i < sublista1.length && j < sublista2.length) {
+            if (sublista1[i] <= sublista2[j]) {
+                resultado[k++] = sublista1[i++];
+            } else {
+                resultado[k++] = sublista2[j++];
+            }
+        }
+
+        while (i < sublista1.length) {
+            resultado[k++] = sublista1[i++];
+        }
+
+        while (j < sublista2.length) {
+            resultado[k++] = sublista2[j++];
+        }
+
+        return resultado;
+    }
+
+    public static int[] Fusionar(List<int[]> listaDeNotas) {
+        int longitudTotal = 0;
+        for (int[] sublista : listaDeNotas) {
+            longitudTotal += sublista.length;
+        }
+
+        int[] resultado = new int[longitudTotal];
+        int posicion = 0;
+        for (int[] sublista : listaDeNotas) {
+            System.arraycopy(sublista, 0, resultado, posicion, sublista.length);
+            posicion += sublista.length;
+        }
+
+        return resultado;
+    }
+
+    public static void imprimirCalificaciones(int[] Notas) {
+        for (int num : Notas) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+    

@@ -1,0 +1,111 @@
+Mi codigo para una caculadora:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Caculadora
+{
+    internal class Program
+    {
+        private static double Resultado;
+
+        public static void Main(string[]args)
+        {
+            double num1, num2, resultado;
+            Console.WriteLine("Opcion");
+            Console.WriteLine("[1]Suma");
+            Console.WriteLine("[2]Resta");
+            Console.WriteLine("[3]Multiplicacion");
+            Console.WriteLine("[4]Division");
+            Console.WriteLine("Ingrese Opcion");
+            int Opcion = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("ingresa el primer numero");
+            num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("ingresa el segundo numero");
+            num2 = Convert.ToInt32(Console.ReadLine());
+            switch (Opcion)
+            {
+                case 1: 
+                resultado = (num1 + num2); 
+                Console.WriteLine("El resultado es: " + resultado);
+                break;
+                case 2: 
+                resultado = (num1 - num2);
+                Console.WriteLine("El resultado es: " + resultado);
+                break;
+                case 3: 
+                resultado = (num1 * num2);
+                Console.WriteLine("El resultado es: " + resultado);
+                break;
+                case 4:
+                    if (num2 != 0)
+                    {
+                        resultado = (num1 / num2);
+                        Console.WriteLine("El resultado es " + resultado);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se puede");
+                    }
+                    break;
+            }
+        }
+    }
+}
+
+-------------------------
+-     Otro codigo       -
+-------------------------
+
+using System;
+public class program
+{
+    public static void Main(string[] args)
+    {
+        double num1, num2, resultado;
+        Console.WriteLine("menu");
+        Console.WriteLine("[1]Suma");
+        Console.WriteLine("[2]Resta");
+        Console.WriteLine("[3]Multiplicacion");
+        Console.WriteLine("[4]Division");
+        Console.WriteLine("Ingresar una opcion");
+        int opcion = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Ingresar numero 1");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Ingresar numero 2");
+        num2 = Convert.ToInt32(Console.ReadLine());
+        switch (opcion)
+        {
+            case 1:
+                resultado = (num1 + num2);
+                Console.WriteLine("El resultado es: " + resultado);
+                break;
+            case 2:
+                resultado = (num1 - num2);
+                Console.WriteLine("El resultado es: " + resultado);
+                break;
+            case 3:
+                resultado = (num1 * num2);
+                Console.WriteLine("El resultado es: " + resultado);
+                break;
+            case 4:
+                if (num2 != 0)
+                {
+                    resultado = (num1 / num2);
+                    Console.WriteLine("El resultado es " + resultado);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("No se puede");
+                }
+                break;
+            default:
+                Console.WriteLine("Opcion invalida");
+                break;
+        }
+    }
+}

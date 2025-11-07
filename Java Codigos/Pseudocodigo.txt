@@ -1,0 +1,247 @@
+class Nodo {
+    int valor;
+    Nodo izquierda, derecha;
+
+    public Nodo(int valor) {
+        this.valor = valor;
+        izquierda = derecha = null;
+    }
+}
+
+class ArbolBinario {
+    Nodo raiz;
+
+    // Constructor para inicializar el árbol vacío
+    public ArbolBinario() {
+        raiz = null;
+    }
+
+    // Función para agregar un elemento al árbol
+    public void agregar(int valor) {
+        raiz = agregarRecursivo(raiz, valor);
+    }
+
+    // Función recursiva para insertar un nodo
+    private Nodo agregarRecursivo(Nodo nodo, int valor) {
+        if (nodo == null) {
+            return new Nodo(valor);
+        }
+
+        if (valor < nodo.valor) {
+            nodo.izquierda = agregarRecursivo(nodo.izquierda, valor);
+        } else if (valor > nodo.valor) {
+            nodo.derecha = agregarRecursivo(nodo.derecha, valor);
+        }
+
+        return nodo;
+    }
+
+    // Función para recorrer el árbol en In-Order (izquierda, raíz, derecha)
+    public void recorrerInOrden() {
+        recorrerInOrdenRecursivo(raiz);
+    }
+
+    private void recorrerInOrdenRecursivo(Nodo nodo) {
+        if (nodo != null) {
+            recorrerInOrdenRecursivo(nodo.izquierda);
+            System.out.print(nodo.valor + " ");
+            recorrerInOrdenRecursivo(nodo.derecha);
+        }
+    }
+
+    // Función para buscar un elemento en el árbol
+    public boolean buscar(int valor) {
+        return buscarRecursivo(raiz, valor);
+    }
+
+    private boolean buscarRecursivo(Nodo nodo, int valor) {
+        if (nodo == null) {
+            return false;
+        }
+
+        if (valor == nodo.valor) {
+            return true;
+        }
+
+        return valor < nodo.valor 
+            ? buscarRecursivo(nodo.izquierda, valor) 
+            : buscarRecursivo(nodo.derecha, valor);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArbolBinario arbol = new ArbolBinario();
+
+        // Agregar elementos al árbol
+        arbol.agregar(5);
+        arbol.agregar(3);
+        arbol.agregar(7);
+        arbol.agregar(1);
+        arbol.agregar(4);
+
+        // Recorrer el árbol en orden
+        System.out.println("Recorrido en In-Order:");
+        arbol.recorrerInOrden();
+
+        // Buscar un elemento
+        System.out.println("\nBuscar 3: " + arbol.buscar(3));
+        System.out.println("Buscar 10: " + arbol.buscar(10));
+    }
+}
+
+-----------------------------------------------------------
+
+1.
+class Nodo {
+    int valor;
+    Nodo izquierda, derecha;
+
+    public Nodo(int valor) {
+        this.valor = valor;
+        izquierda = derecha = null;
+    }
+}
+
+class ArbolBinario {
+    Nodo raiz;
+
+    public ArbolBinario() {
+        raiz = null;
+    }
+}
+
+2.
+class ArbolBinario {
+
+    // Método para agregar un elemento al árbol
+    void agregar(int valor) {
+        raiz = agregarRecursivo(raiz, valor);
+    }
+
+    // Método recursivo para insertar el valor en su lugar adecuado
+    Nodo agregarRecursivo(Nodo nodo, int valor) {
+        if (nodo == null) {
+            return new Nodo(valor);
+        }
+
+        if (valor < nodo.valor) {
+            nodo.izquierda = agregarRecursivo(nodo.izquierda, valor);
+        } else if (valor > nodo.valor) {
+            nodo.derecha = agregarRecursivo(nodo.derecha, valor);
+        }
+
+        return nodo;
+    }
+}
+
+3.
+class ArbolBinario {
+
+    // Método para recorrer el árbol en In-Order (izquierda, raíz, derecha)
+    void recorrerInOrden(Nodo nodo) {
+        if (nodo != null) {
+            recorrerInOrden(nodo.izquierda);
+            System.out.print(nodo.valor + " ");
+            recorrerInOrden(nodo.derecha);
+        }
+    }
+}
+
+4.
+class ArbolBinario {
+
+    // Método para buscar un elemento en el árbol
+    boolean buscar(int valor) {
+        return buscarRecursivo(raiz, valor);
+    }
+
+    // Método recursivo para buscar un valor en el árbol
+    boolean buscarRecursivo(Nodo nodo, int valor) {
+        if (nodo == null) {
+            return false;
+        }
+
+        if (valor == nodo.valor) {
+            return true;
+        }
+
+        return valor < nodo.valor 
+            ? buscarRecursivo(nodo.izquierda, valor) 
+            : buscarRecursivo(nodo.derecha, valor);
+    }
+}
+
+--------------------------------------------------
+Formato PSeint
+
+// Clase Nodo
+Proceso Nodo
+    Definir valor Como Entero
+    Definir izquierdo, derecho Como Nodo
+FinProceso
+
+// Clase Árbol Binario
+Proceso ArbolBinario
+    Definir raiz Como Nodo
+
+    // Constructor para inicializar el árbol vacío
+    Subproceso Inicializar()
+        raiz = NULO
+    FinSubproceso
+
+    // Función para agregar un nuevo valor al árbol
+    Subproceso Agregar(valor Como Entero)
+        raiz = AgregarRecursivo(raiz, valor)
+    FinSubproceso
+
+    // Función recursiva para agregar un valor en el lugar correcto
+    Función AgregarRecursivo(actual Como Nodo, valor Como Entero) Retorna Nodo
+        Si actual = NULO Entonces
+            retornar NuevoNodo(valor)
+        FinSi
+
+        Si valor < actual.valor Entonces
+            actual.izquierdo = AgregarRecursivo(actual.izquierdo, valor)
+        Sino Si valor > actual.valor Entonces
+            actual.derecho = AgregarRecursivo(actual.derecho, valor)
+        FinSi
+
+        retornar actual
+    FinFunción
+
+    // Función para recorrer el árbol en in-order (izquierda, nodo, derecha)
+    Subproceso RecorrerInOrden()
+        RecorrerInOrdenRecursivo(raiz)
+    FinSubproceso
+
+    Subproceso RecorrerInOrdenRecursivo(nodo Como Nodo)
+        Si nodo != NULO Entonces
+            RecorrerInOrdenRecursivo(nodo.izquierdo)
+            Escribir nodo.valor
+            RecorrerInOrdenRecursivo(nodo.derecho)
+        FinSi
+    FinSubproceso
+
+    // Función para buscar un elemento en el árbol
+    Función Buscar(valor Como Entero) Retorna Booleano
+        Retornar BuscarRecursivo(raiz, valor)
+    FinFunción
+
+    Función BuscarRecursivo(actual Como Nodo, valor Como Entero) Retorna Booleano
+        Si actual = NULO Entonces
+            retornar FALSO
+        FinSi
+
+        Si valor = actual.valor Entonces
+            retornar VERDADERO
+        FinSi
+
+        Si valor < actual.valor Entonces
+            retornar BuscarRecursivo(actual.izquierdo, valor)
+        Sino
+            retornar BuscarRecursivo(actual.derecho, valor)
+        FinSi
+    FinFunción
+FinProceso
+

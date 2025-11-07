@@ -1,0 +1,102 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Ingrese una serie de números (ingrese -1 para finalizar):");
+
+        int count = 0;
+        double sum = 0;
+        double max = double.MinValue;
+        double min = double.MaxValue;
+
+        while (true)
+        {
+            Console.Write("Ingrese un número (o -1 para finalizar): ");
+            string input = Console.ReadLine();
+
+            if (input == "-1")
+                break;
+
+            if (!double.TryParse(input, out double number))
+            {
+                Console.WriteLine("¡Entrada inválida! Por favor, ingrese un número válido.");
+                continue;
+            }
+
+            // Actualizar estadísticas
+            count++;
+            sum += number;
+            if (number > max)
+                max = number;
+            if (number < min)
+                min = number;
+        }
+
+        if (count > 0)
+        {
+            double average = sum / count;
+
+            Console.WriteLine("Estadísticas:");
+            Console.WriteLine("Número total de elementos: " + count);
+            Console.WriteLine("Suma de los elementos: " + sum);
+            Console.WriteLine("Promedio de los elementos: " + average);
+            Console.WriteLine("Número más grande: " + max);
+            Console.WriteLine("Número más chico: " + min);
+        }
+        else
+        {
+            Console.WriteLine("No se ingresaron números.");
+        }
+    }
+}
+---------------
+import java.util.Scanner;
+
+public class xd{
+    public static void main(String[] args) {
+        
+        System.out.println("Ingrese una serie de números (ingrese -1 para finalizar): ");
+
+        int count = 0;
+        double sum = 0;
+        double max = Double.MIN_VALUE;
+        double min = Double.MAX_VALUE;
+
+        while (true) {
+            System.out.println("Ingrese un número (o -1 para finalizar): ");
+            Scanner inName = new Scanner(System.in);
+            String input = inName.nextLine();
+
+            if (input == "-1")
+            break;
+
+            if (!Double.TryParse(input, Out Double Number))
+            {
+                System.out.println("¡Entrada Invalida!, Ingrese un número válido");
+                continue;
+            } 
+
+            count++;
+            double number;
+            sum += number;
+            if (number > max)
+            max = number;
+            if (number < min)
+            min = number;
+        }
+        if (count > 0){
+            double average = sum / count;
+            System.out.println("Estadisticas:");
+            System.out.println("La cantidad de números ingresados es: " + count);
+            System.out.println("La suma de los elementos: " + sum);
+            System.out.println("El promedio de los elementos: " + average);
+            System.out.println("El máximo es: " + max);
+            System.out.println("El mínimo es: " + min);
+        }
+        else{
+            System.out.println("No se ingresaron números");
+        }
+    }
+}

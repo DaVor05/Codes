@@ -1,0 +1,288 @@
+---------------
+Creado por mi -
+---------------
+
+R: Imprimir la mitad de una piramide de astericos x10.
+
+using System;
+public class program
+{
+    public static void Main(string[] args)
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            for(int o = 1; o <= i; o++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+R: Imprimir una piramide de astericos en forma vertical horizontal 6.
+
+using System;
+public class program
+{
+    public static void Main(string[] args)
+    {
+        for (int i = 1; i <= 6; i++)
+        {
+            for (int o = 1; o <= i; o++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+        for (int i = 6 - 1; i >= 1; i--)
+        {
+            for (int o = 1; o <= i; o++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+-------------------------------
+Creado por diferentes autores -
+-------------------------------
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int a = int.Parse(Console.ReadLine());
+		for(int y = 1; y <= a; y++)
+		{
+			for(int x = 1; x <= y; x++)
+			{
+				Console.Write("*"); //Console.Write("\n"); AMBAS MANERAS FUNCIONAS PARA HACER UN SALTO DE LINEA
+			}
+			Console.WriteLine();
+		}
+	}
+}
+
+-------------------------------------------------------------------
+
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        int a = int.Parse(Console.ReadLine());
+        
+        for(int x = 1; x <= a; x++)
+        {
+	    //Ahora si queremos voltearla, es decir que en lugar de estar hacia la izquierda quede hacia la derecha, unicamente agregaremos estas lineas
+            for(int y = 1; y <= a - x; y++)
+            {
+                Console.Write(" "); //Esto es para imprimir espacios y hacer la simulacion de que la piramide se incline hacia el otro lado
+            }
+            
+            for(int y = 1; y <= x; y++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+-------------------------------------------------------------------
+
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        int a = int.Parse(Console.ReadLine());
+        
+        for(int x = 1; x <= a; x++)
+        {
+            for(int y = 1; y <= a - x; y++)
+            {
+                Console.Write(" ");
+            }
+            
+            for(int y = 1; y <= x; y++)
+            {
+                Console.Write("*");
+            }
+            //Ahora, si la queremos completamente centrada como en los ejercicios de logicas que vienen en los libros, solamente agregaremos esta otra linea, todavia mas sencilla
+            
+            for(int y = 1; y <= x - 1; y++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+------------------------------------------------------------------
+
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        int a = int.Parse(Console.ReadLine());
+        
+        for(int x = 1; x <= a; x++)
+        {
+            for(int y = 1; y <= x; y++)
+            {
+                Console.WriteLine("*");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+Console.ReadKey();
+
+------------------------------------
+
+
+int numero, lineaActual, espacio, asterisco;
+Console.WriteLine("Ingresar numero: ");
+numero = Convert.ToInt32(Console.ReadLine());
+for (lineaActual = 1; lineaActual <= numero; lineaActual++)
+{
+    for (espacio = 0; espacio < numero - lineaActual; espacio++)
+    {
+        Console.Write(" ");
+    }
+    for (asterisco = 0; asterisco < (lineaActual * 2) - 1; asterisco++)
+    {
+        Console.Write("*");
+    }
+    Console.WriteLine();
+}
+Console.ReadKey();
+
+-----------------------
+- Rombo de Asteriscos -
+-----------------------
+
+using System;
+public class program
+{
+    public static void Main(string[] args)
+    {
+        int x, y;
+        int lado = 6;
+
+        for (x = 0; x <= lado; x++)
+        {
+            for (y = lado - x; y > 0; y--)
+            {
+                Console.Write(" ");
+            }
+            for (y = 0; y < x; y++)
+            {
+                Console.Write(" *");
+            }
+            Console.WriteLine(" ");
+        }
+        for (x = 0; x <= lado; x++)
+        {
+            for ( y = 0; y <= x; y++)
+            {
+                Console.Write(" ");
+            }
+            for (y = lado - x - 1; y > 0; y--)
+            {
+                Console.Write(" *");
+            }
+            Console.WriteLine(" ");
+        }
+    }
+}
+-----------------------------------------
+
+using System;
+
+namespace Ejercicio008
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declaración de variable para solicitar el tamaño de los lados del rombo
+            int t;
+
+            // Solicitar al usuario el ingreso del tamaño de los lados del rombo
+            Console.Write("Ingrese el tamaño de los lados del rombo: ");
+            t = int.Parse(Console.ReadLine());
+
+            // Ciclo for para recorrer las filas necesarias del rombo
+            for (int f = -(t - 1); f < t; f++)
+            {
+                // Ciclo for para agregar los espacios necesarios por cada fila, antes de mostrar los asteriscos
+                for (int e = 1; e <= Math.Abs(f); e++)
+                    Console.Write(" ");
+
+                // Ciclo for para agregar los asteriscos necesarios por cada fila
+                for (int a = 1; a <= t - Math.Abs(f); a++)
+                    Console.Write("* ");
+
+                // Agrega un salto de linea para imprimir la siguiente fila del rombo
+                Console.WriteLine();
+            }
+
+            //Console.ReadKey();// En .NET Framework habilitar para hacer una pausa antes de cerrar consola.
+        }
+    }
+}
+
+------------------------------------------------
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("ingrese un numero para definir la longitud de el rombo: ");
+
+        var l = int.Parse(Console.ReadLine() ?? string.Empty);
+
+        DibujarRombo(l);
+
+    }
+
+    public static void DibujarRombo(int l)
+    {
+        if (l <= 0) return;
+        var init = l;
+        var flag = false;
+        var n = 1;
+        for (var i = 0; i < (l + l) + 1; i++)
+        {
+            var row = string.Empty;
+            row = row.PadRight(n, '*');
+            row = row.Insert(0, "".PadRight(init));
+            Console.WriteLine(row);
+            if (init < 1) flag = true;
+            if (flag)
+            {
+                init++;
+                n -= 2;
+            }
+            else
+            {
+                init--;
+                n += 2;
+            }
+
+        }
+
+    }
+}

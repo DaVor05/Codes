@@ -1,0 +1,42 @@
+using System;
+
+string palabra;
+Console.WriteLine("Ingresa una palabra: ");
+palabra = Convert.ToString(Console.ReadLine());
+
+int a = 0;
+int e = 0;
+int i = 0;
+int o = 0;
+int u = 0;
+
+foreach (char c in palabra) //Convierte de "string" a "char"
+{
+    if (c == 'a' || c == 'A')
+    {
+        a++;
+    }
+    else if (c == 'e' || c == 'E')
+    {
+        e++;
+    }
+    else if (c == 'i' || c == 'I')
+    {
+        i++;
+    }
+    else if (c == 'o' || c == 'O')
+    {
+        o++;
+    }
+    else if (c == 'u' || c == 'U')
+    {
+        u++;
+    }
+}
+
+Console.WriteLine("El total de Aa es de: " + a);
+Console.WriteLine("El total de Ee es de: " + e);
+Console.WriteLine("El total de Ii es de: " + i);
+Console.WriteLine("El total de Oo es de: " + o);
+Console.WriteLine("El total de Uu es de: " + u);
+Console.ReadKey();
